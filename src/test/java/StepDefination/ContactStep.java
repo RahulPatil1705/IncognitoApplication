@@ -1,9 +1,13 @@
 package StepDefination;
 
+import org.junit.Assert;
+import org.openqa.selenium.By;
+
 import BaseLayer.BaseClass;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
 
 public class ContactStep extends BaseClass {
 	@Given("User lounch {string} browser")
@@ -13,7 +17,8 @@ public class ContactStep extends BaseClass {
 
 	@Given("User login with validate cretendial")
 	public void user_login_with_validate_cretendial() {
-
+       String title=driver.getTitle();
+       Assert.assertEquals(title.contains("Cogmento CRM"), true);
 	}
 
 	@When("user switch to contact module")

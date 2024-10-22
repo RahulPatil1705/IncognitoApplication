@@ -8,6 +8,7 @@ import java.util.Properties;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class BaseClass {
@@ -57,6 +58,10 @@ public class BaseClass {
         }
         String userEmail=prop.getProperty("UserEmail");
         String passWord=prop.getProperty("Password");
+        WebElement emailField = driver.findElement(By.name("email"));  // Adjust if necessary
+        WebElement passwordField = driver.findElement(By.name("password"));  
+        emailField.sendKeys(userEmail);
+        passwordField.sendKeys(passWord);
         driver.findElement(By.xpath("//div[text()='Login']")).click();
     }
 }
