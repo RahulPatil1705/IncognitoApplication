@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -54,5 +55,8 @@ public class BaseClass {
         } else {
             System.out.println("URL is not specified in the properties file.");
         }
+        String userEmail=prop.getProperty("UserEmail");
+        String passWord=prop.getProperty("Password");
+        driver.findElement(By.xpath("//div[text()='Login']")).click();
     }
 }
